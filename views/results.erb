@@ -1,1 +1,11 @@
-<h1> The Answer is <%= @solution%> </h1>
+<h1>  About your word <%= @ans %> is <%= @solution%> </h1>
+<br>!!!
+<% @meanings.each { |m| %>
+   <h2>Meaning:
+   <%= m.fetch("partOfSpeech") %></h2>
+   <% m.fetch("definitions").each {|d|  %>
+       <h3>Def</h3>
+       <%= d.fetch("definition") %>
+        <br>
+   <% } %>
+<% } %>

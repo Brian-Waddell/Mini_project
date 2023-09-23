@@ -9,20 +9,23 @@ get("/") do
   erb(:home)
 end 
 
-get("/:user_word") do 
+get("/user_word") do 
    
   
-  @ans = params.fetch("user_word")
-
+  @ans = params.fetch("users_words")
+ pp @ans 
   raw_ans = HTTP.get("https://api.dictionaryapi.dev/api/v2/entries/en/#{@ans}")
 
   pro = JSON.parse(raw_ans)
 
- @solution = pro.fetch("definition")
+ @solution =  pro[0].fetch("meanings")[0].fetch("definitions")[0].fetch("definition")
+ @meanings =  pro[0].fetch("meanings")
+ 
 
-  erb(:second)
-end 
+  erb(:results)
+end   
 
+=begin
 get ("/:user_word/:results") do 
 
 
@@ -32,8 +35,9 @@ get ("/:user_word/:results") do
 
   pro = JSON.parse(raw_ans)
 
- @solution = pro.fetch("definition")
+ @solution = pro.fetch("meanings")
 
 
  erb(:results)
 end 
+=end
