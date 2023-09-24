@@ -20,7 +20,14 @@ get("/user_word/") do
 
  @solution =  pro[0].fetch("meanings")[0].fetch("definitions")[0].fetch("definition")
  @meanings =  pro[0].fetch("meanings")
- @example =   pro[0].fetch("meanings")[0].fetch("definitions")[0].fetch("example")
+ 
+
+ if ( pro[0].fetch("meanings")[0].fetch("definitions")[0].has_key?("example"))
+     @example =   pro[0].fetch("meanings")[0].fetch("definitions")[0].fetch("example")
+ else
+     @example = "(none)"
+ end
+ 
   erb(:results)
 end   
 

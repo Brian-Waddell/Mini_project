@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for misty-pine-2936 on 2023-09-23T19:00:31Z
+# fly.toml app configuration file generated for damp-water-1627 on 2023-09-24T15:57:07Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "misty-pine-2936"
+app = "damp-water-1627"
 primary_region = "ord"
 
 [build]
